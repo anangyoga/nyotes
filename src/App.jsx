@@ -1,8 +1,8 @@
 function App() {
   return (
-    <>
-      <h1 className="text-3xl text-emerald-500 font-bold underline">Hello world!</h1>
-    </>
+    <main className="bg-[#101010] text-slate-50 font-mono">
+      <section className="max-w-7xl mx-auto"></section>
+    </main>
   );
 }
 
