@@ -7,6 +7,8 @@ const NotesForm = ({ createItem, deleteItem, items }) => {
   const [title, setTitle] = useState("");
   const [note, setNote] = useState("");
   const [char, setChar] = useState(50);
+  const [requiredTitle, setRequiredTitle] = useState(false);
+  const [requiredNote, setRequiredNote] = useState(false);
 
   const limitTitleCharacters = (e) => {
     if (char - title.length === 0) return;
@@ -17,6 +19,14 @@ const NotesForm = ({ createItem, deleteItem, items }) => {
     e.preventDefault();
 
     if (char - title.length < 0) return;
+    if (title.length === 0) {
+      setRequiredTitle(true);
+      return;
+    }
+    if (note.length === 0) {
+      setRequiredNote(true);
+      return;
+    }
 
     const newNote = {
       id: +new Date(),
@@ -30,6 +40,8 @@ const NotesForm = ({ createItem, deleteItem, items }) => {
     setTitle("");
     setNote("");
     setChar(50);
+    setRequiredTitle(false);
+    setRequiredNote(false);
   };
 
   return (
@@ -40,8 +52,12 @@ const NotesForm = ({ createItem, deleteItem, items }) => {
           <div className="flex flex-col">
             <span className={char - title.length < 10 ? `text-red-500 text-right` : `text-right`}>{char - title.length} characters left</span>
             <input value={title} onChange={limitTitleCharacters} type="text" placeholder="title..." className="border border-green-400 bg-black p-2 rounded-md outline-none" />
+            {requiredTitle && <p className="text-red-500">guess who forgot to write the title?</p>}
           </div>
-          <textarea value={note} onChange={(e) => setNote(e.target.value)} type="text" placeholder="write your notes.." className="border border-green-400 bg-black min-h-[100px] p-2 rounded-md outline-none" />
+          <div className="flex flex-col">
+            <textarea value={note} onChange={(e) => setNote(e.target.value)} type="text" placeholder="write your notes.." className="border border-green-400 bg-black min-h-[100px] p-2 rounded-md outline-none" />
+            {requiredNote && <p className="text-red-500">guess who forgot to write the note?</p>}
+          </div>
           <button type="submit" className="bg-green-400 rounded-md text-black font-bold lowercase hover:bg-green-500">
             Add
           </button>
