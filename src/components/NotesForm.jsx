@@ -33,7 +33,7 @@ const NotesForm = ({ createItem, deleteItem, items }) => {
       title,
       note,
       archived: false,
-      createdAt: Date.now(),
+      createdAt: Date(),
     };
 
     createItem(newNote);

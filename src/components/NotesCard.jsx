@@ -1,3 +1,5 @@
+import { formatDate } from "../utils/formatDate";
+
 /* eslint-disable react/prop-types */
 const NotesCard = ({ item, deleteItem }) => {
   return (
@@ -5,7 +7,7 @@ const NotesCard = ({ item, deleteItem }) => {
       <div className="flex flex-col gap-2.5  p-2 ">
         <div>
           <h3>{item?.title}</h3>
-          <p className="text-sm text-slate-500">{item?.createdAt}</p>
+          <p className="text-sm text-slate-500">{formatDate(item?.createdAt)}</p>
         </div>
         <p>{item?.note}</p>
       </div>
