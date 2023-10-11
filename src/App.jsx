@@ -4,6 +4,7 @@ import NotesForm from "./components/NotesForm";
 
 function App() {
   const [items, setItems] = useState([]);
+  const [search, setSearch] = useState("");
 
   const createItem = (item) => {
     setItems([...items, item]);
@@ -16,9 +17,9 @@ function App() {
   return (
     <main className="bg-[#101010] text-white font-mono">
       <section>
-        <Header />
+        <Header search={search} setSearch={setSearch} />
         <div className="max-w-7xl mx-auto">
-          <NotesForm createItem={createItem} deleteItem={deleteItem} items={items} />
+          <NotesForm createItem={createItem} deleteItem={deleteItem} items={items} search={search} />
         </div>
       </section>
     </main>

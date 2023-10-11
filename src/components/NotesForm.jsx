@@ -3,7 +3,7 @@
 import { useState } from "react";
 import NotesSection from "./NotesSection";
 
-const NotesForm = ({ createItem, deleteItem, items }) => {
+const NotesForm = ({ createItem, deleteItem, items, search }) => {
   const [title, setTitle] = useState("");
   const [note, setNote] = useState("");
   const [char, setChar] = useState(50);
@@ -64,7 +64,7 @@ const NotesForm = ({ createItem, deleteItem, items }) => {
         </form>
       </div>
 
-      <NotesSection deleteItem={deleteItem} items={items} />
+      <NotesSection deleteItem={deleteItem} items={items} search={search} />
     </section>
   );
 };
