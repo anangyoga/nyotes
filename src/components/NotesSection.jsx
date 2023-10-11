@@ -7,6 +7,7 @@ const NotesSection = ({ items }) => {
       <div className="flex flex-col gap-3">
         <h2>Active</h2>
         <div className="flex gap-2 flex-wrap">
+          {items.length === 0 && <p className="text-slate-500">no nyotes. please make one.</p>}
           {items.map((item) => (
             <NotesCard key={item.id} item={item} />
           ))}
