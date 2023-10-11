@@ -29,6 +29,7 @@ const NotesForm = ({ createItem, deleteItem, items }) => {
     createItem(newNote);
     setTitle("");
     setNote("");
+    setChar(50);
   };
 
   return (
