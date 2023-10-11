@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import NotesCard from "./NotesCard";
 
-const NotesSection = ({ items }) => {
+const NotesSection = ({ items, deleteItem }) => {
   return (
     <div className="pb-32 flex flex-col gap-10">
       <div className="flex flex-col gap-3">
@@ -9,7 +9,7 @@ const NotesSection = ({ items }) => {
         <div className="flex gap-2 flex-wrap">
           {items.length === 0 && <p className="text-slate-500">no nyotes. please make one.</p>}
           {items.map((item) => (
-            <NotesCard key={item.id} item={item} />
+            <NotesCard deleteItem={deleteItem} key={item.id} item={item} />
           ))}
         </div>
       </div>

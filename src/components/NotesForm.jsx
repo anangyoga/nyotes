@@ -3,7 +3,7 @@
 import { useState } from "react";
 import NotesSection from "./NotesSection";
 
-const NotesForm = ({ createItem, items }) => {
+const NotesForm = ({ createItem, deleteItem, items }) => {
   const [title, setTitle] = useState("");
   const [note, setNote] = useState("");
   const [char, setChar] = useState(50);
@@ -30,6 +30,7 @@ const NotesForm = ({ createItem, items }) => {
     setTitle("");
     setNote("");
   };
+
   return (
     <section>
       <div className="pt-20 pb-40 flex flex-col gap-4 max-w-md mx-auto">
@@ -46,7 +47,7 @@ const NotesForm = ({ createItem, items }) => {
         </form>
       </div>
 
-      <NotesSection items={items} />
+      <NotesSection deleteItem={deleteItem} items={items} />
     </section>
   );
 };

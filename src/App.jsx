@@ -8,12 +8,17 @@ function App() {
   const createItem = (item) => {
     setItems([...items, item]);
   };
+
+  const deleteItem = (id) => {
+    const deletedItem = items.filter((item) => item.id !== id);
+    setItems(deletedItem);
+  };
   return (
     <main className="bg-[#101010] text-white font-mono">
       <section>
         <Header />
         <div className="max-w-7xl mx-auto">
-          <NotesForm createItem={createItem} items={items} />
+          <NotesForm createItem={createItem} deleteItem={deleteItem} items={items} />
         </div>
       </section>
     </main>
