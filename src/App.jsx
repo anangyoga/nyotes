@@ -21,7 +21,7 @@ function App() {
   };
   return (
     <main className="bg-[#101010] text-white font-mono">
-      <section>
+      <section className="px-10 md:px-0 ">
         <Header search={search} setSearch={setSearch} />
         <div className="max-w-7xl mx-auto">
           <NotesForm createItem={createItem} deleteItem={deleteItem} items={items} search={search} archiveItem={archiveItem} />

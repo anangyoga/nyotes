@@ -46,7 +46,7 @@ const NotesForm = ({ createItem, deleteItem, items, search, archiveItem }) => {
 
   return (
     <section>
-      <div className="pt-20 pb-40 flex flex-col gap-4 max-w-md mx-auto">
+      <div className="md:pt-20 py-10 md:pb-40 flex flex-col gap-4 max-w-md mx-auto">
         <h2>create your nyotes</h2>
         <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
           <div className="flex flex-col">
