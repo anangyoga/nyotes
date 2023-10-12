@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Header } from "./components/Header";
 import NotesForm from "./components/NotesForm";
+import { getInitialData } from "./utils/data";
 
 function App() {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState(getInitialData);
   const [search, setSearch] = useState("");
 
   const createItem = (item) => {
