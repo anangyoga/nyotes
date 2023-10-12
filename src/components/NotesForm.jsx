@@ -3,7 +3,7 @@
 import { useState } from "react";
 import NotesSection from "./NotesSection";
 
-const NotesForm = ({ createItem, deleteItem, items, search }) => {
+const NotesForm = ({ createItem, deleteItem, items, search, archiveItem }) => {
   const [title, setTitle] = useState("");
   const [note, setNote] = useState("");
   const [char, setChar] = useState(50);
@@ -32,7 +32,7 @@ const NotesForm = ({ createItem, deleteItem, items, search }) => {
       id: +new Date(),
       title,
       note,
-      archived: false,
+      isArchived: false,
       createdAt: Date(),
     };
 
@@ -64,7 +64,7 @@ const NotesForm = ({ createItem, deleteItem, items, search }) => {
         </form>
       </div>
 
-      <NotesSection deleteItem={deleteItem} items={items} search={search} />
+      <NotesSection deleteItem={deleteItem} items={items} search={search} archiveItem={archiveItem} />
     </section>
   );
 };
